@@ -10,7 +10,7 @@ Tile flip pattern match game, created for my milestone project as part of the Fu
 * As a return user, I want to select my level, to choose the appropiate challenge.
 * As a frequent user, I want the best time displayed, so I can try to beat it. 
 
-[Wireframes](/workspace/milestone-2-memoryGame/wireframes)
+[Wireframes](https://github.com/patricksingleton86/milestone-2-memoryGame/tree/master/wireframes)
 
 ## Features
 
