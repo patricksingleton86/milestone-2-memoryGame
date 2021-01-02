@@ -1,6 +1,6 @@
 `python3 -m http.server`
 
-# Memory Game
+# Flip It
 
 Tile flip pattern match game, created for my milestone project as part of the Full Stack Software Development course.
 
@@ -10,7 +10,7 @@ Tile flip pattern match game, created for my milestone project as part of the Fu
 * As a return user, I want to select my level, to choose the appropiate challenge.
 * As a frequent user, I want the best time displayed, so I can try to beat it. 
 
-[Wireframes](https://github.com/patricksingleton86/milestone-2-memoryGame/tree/master/wireframes)
+[Wireframes](https://github.com/patricksingleton86/milestone-2-memoryGame/blob/master/wireframes/memoryGame-wireframes.pdf)
 
 ## Features
 
