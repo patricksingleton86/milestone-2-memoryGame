@@ -1,0 +1,16 @@
+img {
+    height: 100px;
+    width: 100px;
+    margin: 1px;
+}
+.game {
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.front,
+.back {
+    position: absolute;
+}
