@@ -1,5 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
     height: 100vh;
+    display: flex;
 }
 img {
     height: 100px;
@@ -7,16 +13,38 @@ img {
     margin: 1px;
 }
 .game {
-    width: 500px;
-    height: 500px;
+    width: 640px;
+    height: 640px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 .tile {
+
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    /* margin: 5px; */
     position: relative;
+    /* box-shadow: 1px 1px 1px rgba(0,0,0,.3); */
+    transform: scale(1);
+}
+.hover {
+    transform: scale(0.90);
+    transition: transform .2s;
+}
+.flip {
+    transform: rotateY(180deg);
 }
 
 .front,
 .back {
+    width: 100%;
+    height: 100%;
     position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+.front {
+    transform: rotateY(180deg);
 }
