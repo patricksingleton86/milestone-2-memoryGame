@@ -1,28 +1,60 @@
 $(document).ready(function() {
-    let tiles = document.querySelectorAll(".tile");
+    const tiles = document.querySelectorAll(".tile");
     // hover
     $(".tile").hover(function() {
-        $( this ).addClass("hover");
+        $(this).addClass("hover");
     }, function() {
-        $( this ).removeClass("hover");
+        $(this).removeClass("hover");
     });
     // flip
-    let flipped = [];
-    $(".tile").click(function() {
-        $( this ).click("flip");
-        flipped.push(this);
-        if (flipped.length === 2) {
-            if(flipped[0].name === flipped[1].name) {
-                match();
-            } if(flipped[0].name != flipped[1].name)  {
-                noMatch();
+    let isFlipped = false;
+    let tile1, tile2;
 
-            }
+    function flipTile(){
+        $(this).addClass("flip");
+            // flipped.push(this);
+            
+        if(!isFlipped) {
+            // first click
+            isFlipped = true;
+            tile1 = this;
+            //  second click
+        } else {
+            isFlipped = false;
+            tile2 = this;
+
+        if(tile1.dataset.name === tile2.dataset.name) {
+            tile1.removeEventListener("click", flipTile);
+            tile1.removeEventListener("click", flipTile);
+        } else {
+            setTimeout(function() {
+            $(tile1).removeClass("flip");
+            $(tile2).removeClass("flip");
+            }, 1000);
         }
-
-
-    })
+            
+        }
+    }
     
+    tiles.forEach(tile => tile.addEventListener("click", flipTile));
+})
+
+
+
+
+
+
+    // let flipped = [];
+    // let match = [];
+// if (flipped.length === 2) {
+        //     if(flipped[0].name === flipped[1].name) {
+        //         flipped[0].toarray(match);
+        //         flipped[1].toarray(match);
+        //         if(match.length === 12){
+        //             return "Congratulations";
+        //         }
+
+        //     } if(flipped[0].name != flipped[1].name)  {
 
     
     
@@ -43,5 +75,3 @@ $(document).ready(function() {
     // function noMatch() {
     //     $(flippedTile[0]).removeClass("flip");
     //     $(flippedTile[1]).removeClass("flip");
-    tiles.forEach(tile => tile.addEventListener("click"))
-});
