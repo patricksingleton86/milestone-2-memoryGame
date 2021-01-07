@@ -43,3 +43,7 @@ img {
     position: absolute;
     border-radius: 5px;
 }
+.timer {
+	display: inline-block;
+	margin: 0 1rem;
+}

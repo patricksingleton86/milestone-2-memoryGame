@@ -1,22 +1,39 @@
 $(document).ready(function() {
     const tiles = document.querySelectorAll(".tile");
-    // hover
+    
+    //  Shuffle tiles
+    (function shuffle() {
+        tiles.forEach(tile => {
+            let randomize = Math.floor(Math.random()* 12);
+            tile.style.order = randomize;
+        })
+    })();
+    
+    // hover tile
     $(".tile").hover(function() {
         $(this).addClass("hover");
     }, function() {
         $(this).removeClass("hover");
     });
-    // flip
+
+    // flip tile
     let isFlipped = false;
     let flipLock = false;
     let tile1, tile2;
+    let flips = [];
 
     function flipTile(){
         if(flipLock) return;
-        if (this === tile1) return;
+        if(this === tile1) return;
+        
 
         $(this).addClass("flip");
-            // flipped.push(this);
+            flips.push(this);
+            console.log(flips)
+            if(flips === 1){
+                startTimer();
+            console.log(flips)
+        }
             
         if(!isFlipped) {
             // first click
@@ -32,16 +49,18 @@ $(document).ready(function() {
     }
 
     function checkMatch() {
-        let match = tile1.dataset.name === tile2.dataset.name;
-
-        match ? disable() : unflip();
+        if(tile1.dataset.name === tile2.dataset.name) {
+            disable();
+        } else {
+            unflip();
+        }
     }
-
+    // Disabe fliped tile
     function disable() {
         tile1.removeEventListener("click", flipTile);
         tile1.removeEventListener("click", flipTile);
     } 
-
+    // Unflip tiles that don't match
     function unflip() {
         flipLock = true;
         setTimeout(function() {
@@ -52,16 +71,22 @@ $(document).ready(function() {
     }
 
     function reset() {
-        [isFlipped, flipLock] = [false, false];
-        [tile1, tile2] = [null, null];
+        isFlipped = false;
+        flipLock = false;
+        tile1 = null;
+        tile2 = null;
     }
 
-    (function shuffle() {
-        tiles.forEach(tile => {
-            let randomize = Math.floor(Math.random()* 12);
-            tile.style.order = randomize;
-        })
-    })();
+    // Timer
+    var i = 1;
+    // $("#startButton").click(function (e) {
+    function startTimer() {
+        setInterval(function () {
+            // if(flips == 1){
+            $("#timer").html(i);
+            i++;
+        }, 1000);
+    };
     
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
@@ -107,3 +132,9 @@ $(document).ready(function() {
     
 //     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 // })
+
+// function checkMatch() {
+//         let match = tile1.dataset.name === tile2.dataset.name;
+
+//         match ? disable() : unflip();
+//     }
