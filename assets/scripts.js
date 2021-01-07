@@ -8,9 +8,13 @@ $(document).ready(function() {
     });
     // flip
     let isFlipped = false;
+    let flipLock = false;
     let tile1, tile2;
 
     function flipTile(){
+        if(flipLock) return;
+        if (this === tile1) return;
+
         $(this).addClass("flip");
             // flipped.push(this);
             
@@ -23,18 +27,41 @@ $(document).ready(function() {
             isFlipped = false;
             tile2 = this;
 
-        if(tile1.dataset.name === tile2.dataset.name) {
-            tile1.removeEventListener("click", flipTile);
-            tile1.removeEventListener("click", flipTile);
-        } else {
-            setTimeout(function() {
-            $(tile1).removeClass("flip");
-            $(tile2).removeClass("flip");
-            }, 1000);
-        }
-            
+            checkMatch();
         }
     }
+
+    function checkMatch() {
+        let match = tile1.dataset.name === tile2.dataset.name;
+
+        match ? disable() : unflip();
+    }
+
+    function disable() {
+        tile1.removeEventListener("click", flipTile);
+        tile1.removeEventListener("click", flipTile);
+    } 
+
+    function unflip() {
+        flipLock = true;
+        setTimeout(function() {
+            $(tile1).removeClass("flip");
+            $(tile2).removeClass("flip");
+            reset();
+            }, 1000);
+    }
+
+    function reset() {
+        [isFlipped, flipLock] = [false, false];
+        [tile1, tile2] = [null, null];
+    }
+
+    (function shuffle() {
+        tiles.forEach(tile => {
+            let randomize = Math.floor(Math.random()* 12);
+            tile.style.order = randomize;
+        })
+    })();
     
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
@@ -43,35 +70,40 @@ $(document).ready(function() {
 
 
 
+// function flipTile(){
+//         $(this).addClass("flip");
+//             // flipped.push(this);
+            
+//         if(!isFlipped) {
+//             // first click
+//             isFlipped = true;
+//             tile1 = this;
+//             //  second click
+//         } else {
+//             isFlipped = false;
+//             tile2 = this;
 
-    // let flipped = [];
-    // let match = [];
-// if (flipped.length === 2) {
-        //     if(flipped[0].name === flipped[1].name) {
-        //         flipped[0].toarray(match);
-        //         flipped[1].toarray(match);
-        //         if(match.length === 12){
-        //             return "Congratulations";
-        //         }
-
-        //     } if(flipped[0].name != flipped[1].name)  {
+//             checkMatch();
+//         }
+//         }
+//     function checkMatch() {
+//         if(tile1.dataset.name === tile2.dataset.name) {
+//             disable();
+//         } else {
+//             unflip();
+//         }
+//     }
+//     function disable() {
+//         tile1.removeEventListener("click", flipTile);
+//         tile1.removeEventListener("click", flipTile);
+//         } 
+//     function unflip() {
+//         setTimeout(function() {
+//             $(tile1).removeClass("flip");
+//             $(tile2).removeClass("flip");
+//             }, 1000);
+//     }
 
     
-    
-    
-    // // match
-    // function flipped() {       
-    //     if(flippedTile.length === 2) {
-    //         if(flippedTile[0].name === flippedTile[1].name) {
-    //             match();
-    //         } else {
-    //             noMatch();
-    //         }
-    //         }
-    //     }
-    // function match() {
-
-    // }
-    // function noMatch() {
-    //     $(flippedTile[0]).removeClass("flip");
-    //     $(flippedTile[1]).removeClass("flip");
+//     tiles.forEach(tile => tile.addEventListener("click", flipTile));
+// })
