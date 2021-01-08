@@ -71,11 +71,11 @@ $(document).ready(function() {
         setTimeout(function() {
             $(tile1).removeClass("flip");
             $(tile2).removeClass("flip");
-            reset();
+            resetFlip();
             }, 1000);
     }
 
-    function reset() {
+    function resetFlip() {
         isFlipped = false;
         flipLock = false;
         tile1 = null;
@@ -111,7 +111,17 @@ $(document).ready(function() {
         }
         setTimeout(function(){ alert( localStorage.getItem("best") ); }, 1000);
         }
-    
+    // Reset button
+    function reset() {
+        $("#reset").click(function() {
+            $("tile").removeClass("flip");
+            shuffle();
+
+        })
+    }
+
+
+
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
 
