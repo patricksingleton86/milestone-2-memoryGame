@@ -71,15 +71,18 @@ $(document).ready(function() {
         setTimeout(function() {
             $(tile1).removeClass("flip");
             $(tile2).removeClass("flip");
-            resetFlip();
+            flipable();
             }, 1000);
     }
 
-    function resetFlip() {
+    function flipable() {
         isFlipped = false;
         flipLock = false;
         tile1 = null;
         tile2 = null;
+    }
+    function flipReset() {
+        if(flips > 0) {flips = 0}
     }
 
     // Timer
@@ -109,19 +112,26 @@ $(document).ready(function() {
         } else {
             localStorage.setItem("best", result)
         }
+    
         setTimeout(function(){ alert( localStorage.getItem("best") ); }, 1000);
         }
-    // Reset button
-    function reset() {
-        $("#reset").click(function() {
-            $("tile").removeClass("flip");
-            shuffle();
+    
+    // Stop button
+    $("#stop").click(function(){
+        clearInterval(totalTime);
+    });
 
-        })
+        // Reset button
+    $("#reset").click(function(){
+        resetTimer();
+        unflip();
+        shuffle();
+        flipReset();
+    });
+    function resetTimer() {     
+        $("#timer").html(i);
+        i = 0;
     }
-
-
-
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
 
