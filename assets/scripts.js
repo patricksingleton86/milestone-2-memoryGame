@@ -84,8 +84,12 @@ $(document).ready(function() {
 
     // Timer
     let i = 1;
-    let best = localStorage.getItem("best");;
+    let best = localStorage.getItem("best");
     
+    (function bestTime() {
+        $("#bestTime").html(best);
+    })();
+
 
     function startTimer() {
         totalTime = setInterval(function () {

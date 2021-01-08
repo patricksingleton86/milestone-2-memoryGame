@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-    <section class="nav">
+    <!-- <section class="nav">
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Level 1</a>
@@ -28,10 +28,11 @@
                     <a class="nav-link" href="#">Level 3</a>
                 </li>
                 </ul>
-        </section>
+        </section> -->
     </header>
     <!-- game board -->
-    <section class="game">
+    <section class="container">
+        <div class="game">
             <div class="tile" data-name="car">
                 <img class="front" src="assets/images/pexels-aleksey-kuprikov-4024484.jpg" alt="">
                 <img class="back" src="assets/images/stockvault-brain-as-black-lightbulb175284.jpg" alt="">
@@ -80,9 +81,12 @@
                 <img class="front" src="assets/images/pexels-jeffrey-czum-3330118.jpg" alt="">
                 <img class="back" src="assets/images/stockvault-brain-as-black-lightbulb175284.jpg" alt="">
             </div>
-            <!-- timer -->
-            <div id="timer">0</div>
+        </div>
     </section>
-    
+                <!-- timer/scoreboard -->
+    <section class="container">
+        <div id="timer">0</div>
+        <div id="bestTime">0</div>
+    </section>
 </body>
 </html>
