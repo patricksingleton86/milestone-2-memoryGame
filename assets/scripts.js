@@ -84,6 +84,8 @@ $(document).ready(function() {
 
     // Timer
     let i = 1;
+    let best = localStorage.getItem("best");;
+    
 
     function startTimer() {
         totalTime = setInterval(function () {
@@ -94,8 +96,17 @@ $(document).ready(function() {
 
     function stopTimer(){
         clearInterval(totalTime);
-        
-    }
+        result = totalTime;
+        console.log(result)
+        if(best !== null) {
+            if(best > result) {
+                localStorage.setItem("best", result);
+            }
+        } else {
+            localStorage.setItem("best", result)
+        }
+        setTimeout(function(){ alert( localStorage.getItem("best") ); }, 1000);
+        }
     
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
