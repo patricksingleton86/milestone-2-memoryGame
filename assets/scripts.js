@@ -20,7 +20,8 @@ $(document).ready(function() {
     let isFlipped = false;
     let flipLock = false;
     let tile1, tile2;
-    let flips = [];
+    let flips = 0;
+    let matched = 0;
 
     function flipTile(){
         if(flipLock) return;
@@ -28,9 +29,9 @@ $(document).ready(function() {
         
 
         $(this).addClass("flip");
-            flips.push(this);
+            flips++;
             console.log(flips)
-            if(flips === 1){
+            if(flips == 1){
                 startTimer();
             console.log(flips)
         }
@@ -50,7 +51,11 @@ $(document).ready(function() {
 
     function checkMatch() {
         if(tile1.dataset.name === tile2.dataset.name) {
-            disable();
+            matched++;
+            if(matched === 6){
+                stopTimer();
+            }
+            disable();            
         } else {
             unflip();
         }
@@ -78,15 +83,19 @@ $(document).ready(function() {
     }
 
     // Timer
-    var i = 1;
-    // $("#startButton").click(function (e) {
+    let i = 1;
+
     function startTimer() {
-        setInterval(function () {
-            // if(flips == 1){
+        totalTime = setInterval(function () {
             $("#timer").html(i);
             i++;
         }, 1000);
-    };
+    }
+
+    function stopTimer(){
+        clearInterval(totalTime);
+        
+    }
     
     tiles.forEach(tile => tile.addEventListener("click", flipTile));
 })
