@@ -1,46 +1,59 @@
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+body {
     height: 100vh;
-    display: flex;
+    background-color: black !important;
 }
-header{
-    width: 640px;
+.header {
+    color: blue;
+    font-size: 7vh;
+    display: flex;
+    align-items: center;
+    font-family: "Hachi Maru Pop", sans-serif;
 }
 .timesContainer {
-    width: 640px;
     margin: auto;
     display: flex;
     justify-content: space-between;
 }
 .times {
-    font-size: 2em;
-
+    color: #ffc61d;
+    font-size: 5vh;
 }
 .game {
     display: grid;
 }
 .gameBoard {
-    width: 640px;
-    height: 640px;
+    height: 60vh;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 .tile {
-
     width: calc(25% - 5px);
     height: calc(33.333% - 5px);
     margin: 2px;
     position: relative;
-    /* box-shadow: 1px 1px 1px rgba(0,0,0,.3); */
     transform: scale(1);
+}
+.reset {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+.btn-reset {
+    color: black;
+    background-color: #ffc61d !important;
+}
+.btn-info-Button {
+    font-size: large !important;
+    color: blue !important;
+    background-color: black !important;
 }
 .hover {
     transform: scale(0.90);
@@ -57,12 +70,3 @@ header{
     position: absolute;
     border-radius: 5px;
 }
-#reset {
-    margin-top: 1em;
-    color: rgb(175, 10, 10);
-}
-.infoContainer {
-    width: 640px;
-    margin: auto;
-}
-

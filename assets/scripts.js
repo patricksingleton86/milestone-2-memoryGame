@@ -120,57 +120,10 @@ $(document).ready(function() {
             tile.style.order = randomize;
         })
     }
+    // Page load 
     function startUp() {
         tiles.forEach(tile => tile.addEventListener("click", flipTile));
         shuffle();
         bestTime();
     }
 })
-
-
-
-
-
-// function flipTile(){
-//         $(this).addClass("flip");
-//             // flipped.push(this);
-            
-//         if(!isFlipped) {
-//             // first click
-//             isFlipped = true;
-//             tile1 = this;
-//             //  second click
-//         } else {
-//             isFlipped = false;
-//             tile2 = this;
-
-//             checkMatch();
-//         }
-//         }
-//     function checkMatch() {
-//         if(tile1.dataset.name === tile2.dataset.name) {
-//             disable();
-//         } else {
-//             unflip();
-//         }
-//     }
-//     function disable() {
-//         tile1.removeEventListener("click", flipTile);
-//         tile1.removeEventListener("click", flipTile);
-//         } 
-//     function unflip() {
-//         setTimeout(function() {
-//             $(tile1).removeClass("flip");
-//             $(tile2).removeClass("flip");
-//             }, 1000);
-//     }
-
-    
-//     tiles.forEach(tile => tile.addEventListener("click", flipTile));
-// })
-
-// function checkMatch() {
-//         let match = tile1.dataset.name === tile2.dataset.name;
-
-//         match ? disable() : unflip();
-//     }
