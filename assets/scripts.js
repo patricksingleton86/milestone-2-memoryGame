@@ -1,21 +1,12 @@
 $(document).ready(function() {
     const tiles = document.querySelectorAll(".tile");
-    
-    //  Shuffle tiles
-    (function shuffle() {
-        tiles.forEach(tile => {
-            let randomize = Math.floor(Math.random()* 12);
-            tile.style.order = randomize;
-        })
-    })();
-    
+    startUp();
     // hover tile
     $(".tile").hover(function() {
         $(this).addClass("hover");
     }, function() {
         $(this).removeClass("hover");
     });
-
     // flip tile
     let isFlipped = false;
     let flipLock = false;
@@ -27,7 +18,6 @@ $(document).ready(function() {
         if(flipLock) return;
         if(this === tile1) return;
         
-
         $(this).addClass("flip");
             flips++;
             console.log(flips)
@@ -41,7 +31,7 @@ $(document).ready(function() {
             isFlipped = true;
             tile1 = this;
             //  second click
-        } else {
+        }else {
             isFlipped = false;
             tile2 = this;
 
@@ -56,7 +46,7 @@ $(document).ready(function() {
                 stopTimer();
             }
             disable();            
-        } else {
+        }else {
             unflip();
         }
     }
@@ -81,9 +71,6 @@ $(document).ready(function() {
         tile1 = null;
         tile2 = null;
     }
-    function flipReset() {
-        if(flips > 0) {flips = 0}
-    }
 
     // Timer
     let i = 1;
@@ -95,6 +82,7 @@ $(document).ready(function() {
 
 
     function startTimer() {
+        i = 0;
         totalTime = setInterval(function () {
             $("#timer").html(i);
             i++;
@@ -109,30 +97,39 @@ $(document).ready(function() {
             if(best > result) {
                 localStorage.setItem("best", result);
             }
-        } else {
+        }else {
             localStorage.setItem("best", result)
         }
     
         setTimeout(function(){ alert( localStorage.getItem("best") ); }, 1000);
         }
-    
-    // Stop button
-    $("#stop").click(function(){
-        clearInterval(totalTime);
-    });
 
         // Reset button
     $("#reset").click(function(){
         resetTimer();
-        unflip();
         shuffle();
         flipReset();
+        startUp();
     });
     function resetTimer() {     
-        $("#timer").html(i);
-        i = 0;
+        $("#timer").html(0);
+        clearInterval(totalTime);
+    } 
+    function flipReset(){
+        $(".tile").removeClass("flip");
+        flips = 0;
+        console.log(flips)
     }
-    tiles.forEach(tile => tile.addEventListener("click", flipTile));
+    function shuffle() {
+        tiles.forEach(tile => {
+            let randomize = Math.floor(Math.random()* 12);
+            tile.style.order = randomize;
+        })
+    }
+    function startUp() {
+        tiles.forEach(tile => tile.addEventListener("click", flipTile));
+        shuffle();
+    }
 })
 
 
