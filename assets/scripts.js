@@ -2,7 +2,7 @@ $(document).ready(function() {
     const tiles = document.querySelectorAll(".tile");
     setTimeout(function() {
         startUp();
-    }, 1000);
+    }, 3000);
     // hover tile
     $(".tile").hover(function() {
         $(this).addClass("hover");
