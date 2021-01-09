@@ -1,6 +1,8 @@
 $(document).ready(function() {
     const tiles = document.querySelectorAll(".tile");
-    startUp();
+    setTimeout(function() {
+        startUp();
+    }, 1000);
     // hover tile
     $(".tile").hover(function() {
         $(this).addClass("hover");
@@ -24,8 +26,7 @@ $(document).ready(function() {
             if(flips == 1){
                 startTimer();
             console.log(flips)
-        }
-            
+        } 
         if(!isFlipped) {
             // first click
             isFlipped = true;
@@ -38,7 +39,6 @@ $(document).ready(function() {
             checkMatch();
         }
     }
-
     function checkMatch() {
         if(tile1.dataset.name === tile2.dataset.name) {
             matched++;
@@ -64,23 +64,19 @@ $(document).ready(function() {
             flipable();
             }, 1000);
     }
-
     function flipable() {
         isFlipped = false;
         flipLock = false;
         tile1 = null;
         tile2 = null;
     }
-
     // Timer
     let i = 1;
     let best = localStorage.getItem("best");
     
-    (function bestTime() {
+    function bestTime() {
         $("#bestTime").html(best);
-    })();
-
-
+    };
     function startTimer() {
         i = 0;
         totalTime = setInterval(function () {
@@ -88,10 +84,9 @@ $(document).ready(function() {
             i++;
         }, 1000);
     }
-
     function stopTimer(){
         clearInterval(totalTime);
-        result = totalTime;
+        result = i;
         console.log(result)
         if(best !== null) {
             if(best > result) {
@@ -100,10 +95,8 @@ $(document).ready(function() {
         }else {
             localStorage.setItem("best", result)
         }
-    
-        setTimeout(function(){ alert( localStorage.getItem("best") ); }, 1000);
-        }
-
+        console.log(totalTime, result, best)
+    }
         // Reset button
     $("#reset").click(function(){
         resetTimer();
@@ -118,6 +111,7 @@ $(document).ready(function() {
     function flipReset(){
         $(".tile").removeClass("flip");
         flips = 0;
+        matched = 0;
         console.log(flips)
     }
     function shuffle() {
@@ -129,6 +123,7 @@ $(document).ready(function() {
     function startUp() {
         tiles.forEach(tile => tile.addEventListener("click", flipTile));
         shuffle();
+        bestTime();
     }
 })
 

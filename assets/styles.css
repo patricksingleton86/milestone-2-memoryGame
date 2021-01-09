@@ -7,11 +7,11 @@ body{
     height: 100vh;
     display: flex;
 }
-img {
-    height: 100px;
-    width: 100px;
+/* img {
+    height: 2em;
+    width: 2em;
     margin: 1px;
-}
+} */
 .timesContainer {
     width: 640px;
     margin: auto;
@@ -55,5 +55,9 @@ img {
     height: 100%;
     position: absolute;
     border-radius: 5px;
+}
+#reset {
+    margin-top: 1em;
+    color: rgb(175, 10, 10);
 }
 
