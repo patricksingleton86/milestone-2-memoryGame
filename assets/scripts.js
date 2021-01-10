@@ -73,7 +73,7 @@ $(document).ready(function() {
     // Timer
     let i = 1;
     let best = localStorage.getItem("best");
-    // $("#winModal").modal({show: false})
+    $("#winModal").modal({show: false})
     
     function bestTime() {
         $("#bestTime").html(best);
@@ -96,9 +96,6 @@ $(document).ready(function() {
         }else {
             localStorage.setItem("best", result)
         }
-        $("#winModal").modal("show");
-        $("#highScore").html(best);
-        $("#yourScore").html(result);
     }
         // Reset button
     $("#reset").click(function(){
@@ -106,13 +103,6 @@ $(document).ready(function() {
         shuffle();
         flipReset();
         startUp();
-    });
-    $("#winReset").click(function(){
-        resetTimer();
-        shuffle();
-        flipReset();
-        startUp();
-        $("#winModal").modal("hide");
     });
     function resetTimer() {     
         $("#timer").html(0);
@@ -122,7 +112,7 @@ $(document).ready(function() {
         $(".tile").removeClass("flip");
         flips = 0;
         matched = 0;
-        console.log(flips)
+        console.log(flips, matched)
     }
     function shuffle() {
         tiles.forEach(tile => {
