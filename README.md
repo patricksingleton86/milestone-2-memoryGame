@@ -98,9 +98,15 @@ If you wish to run this code, copy and paste git clone https://github.com/patric
 Images obtained from Pexels
 
 pexels-aleksey-kuprikov-4024484
+
 pexels-anna-shvets-3852161
+
 pexels-cleyton-ewerton-4995693
+
 pexels-dina-nasyrova-3808243
+
 pexels-ellie-burgin-4612722
+
 pexels-jeffrey-czum-3330118
+
 stockvault-brain-as-black-lightbulb175284
