@@ -1,5 +1,3 @@
-`python3 -m http.server`
-
 # Flip It
 
 Tile flip pattern match game, click the tiles to display the hidden pictures, find all the matching pairs to win. Created for my milestone project as part of the Full Stack Software Development course.
