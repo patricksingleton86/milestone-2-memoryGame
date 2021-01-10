@@ -5,11 +5,14 @@ Tile flip pattern match game, click the tiles to display the hidden pictures, fi
 ## UX
 
 As a site user, I would like to:
-* play
+
+* play 
 * see my time
 * see the fastest time
 * learn how to play
 * contact the creator
+
+![Play](assets/images/game-screen.png)
 
 ### Strategy
 
