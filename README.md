@@ -19,7 +19,11 @@ Build a simple memory game that users find fun to play.
 
 ### Scope
 
-Keep it simple, a single page with everything the user needs. The game will be the main focus with links for how to play and contact information. 
+Keep it simple, a single page with everything the user needs
+
+The game will be the main focus
+
+Links for how to play and contact information. 
 
 ### Structure
 
@@ -73,16 +77,21 @@ HTML ran through W3 Validator
 CSS ran through W3 Jigsaw
 
 JS ran through JS Hint
+
 ## Deployment
 
+Site Deployed to Github pages
+
+In Github: 
+* select yout repositories
+* select milestone-2-memoryGame
+* select settings
+* Scroll to Github Pages section and select Branch:master
+* Click save
+
+If you wish to run this code, copy and paste git clone https://github.com/patricksingleton86/milestone-2-memoryGame.git to your terminal
 
 ## Credits
-
-
-
-### Content
-
-Code written by Patrick Singleton (me)
 
 ### Images
 
@@ -94,18 +103,4 @@ pexels-cleyton-ewerton-4995693
 pexels-dina-nasyrova-3808243
 pexels-ellie-burgin-4612722
 pexels-jeffrey-czum-3330118
-pexels-lisa-fotios-1476330
-pexels-little-visuals-1964
-pexels-markus-winkler-4524369
-pexels-mary-salen-5771403
-pexels-myburgh-roux-3250384
-pexels-petr-ganaj-4032024
-pexels-pixabay-247431
-pexels-rheyan-glenn-dela-cruz-manggob-4794387
-pexels-samson-katt-5255241
-pexels-victor-448835
-pexels-vlad-bagacian-3987066
-pexels-вячеслав-шахгусейнов-4574925
 stockvault-brain-as-black-lightbulb175284
-
-### Acknoledgements

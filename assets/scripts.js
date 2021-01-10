@@ -22,10 +22,8 @@ $(document).ready(function() {
         
         $(this).addClass("flip");
             flips++;
-            console.log(flips)
             if(flips == 1){
                 startTimer();
-            console.log(flips)
         } 
         if(!isFlipped) {
             // first click
@@ -73,11 +71,10 @@ $(document).ready(function() {
     // Timer
     let i = 1;
     let best = localStorage.getItem("best");
-    $("#winModal").modal({show: false})
     
     function bestTime() {
         $("#bestTime").html(best);
-    };
+    }
     function startTimer() {
         i = 0;
         totalTime = setInterval(function () {
@@ -88,13 +85,12 @@ $(document).ready(function() {
     function stopTimer(){
         clearInterval(totalTime);
         result = i;
-        console.log(result)
         if(best !== null) {
             if(best > result) {
                 localStorage.setItem("best", result);
             }
         }else {
-            localStorage.setItem("best", result)
+            localStorage.setItem("best", result);
         }
     }
         // Reset button
@@ -112,13 +108,12 @@ $(document).ready(function() {
         $(".tile").removeClass("flip");
         flips = 0;
         matched = 0;
-        console.log(flips, matched)
     }
     function shuffle() {
         tiles.forEach(tile => {
             let randomize = Math.floor(Math.random()* 12);
             tile.style.order = randomize;
-        })
+        });
     }
     // Page load 
     function startUp() {
@@ -126,4 +121,4 @@ $(document).ready(function() {
         shuffle();
         bestTime();
     }
-})
+});
