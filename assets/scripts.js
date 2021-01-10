@@ -99,6 +99,8 @@ $(document).ready(function() {
         shuffle();
         flipReset();
         startUp();
+        best = localStorage.getItem("best");
+        bestTime();
     });
     function resetTimer() {     
         $("#timer").html(0);
